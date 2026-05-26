@@ -15,6 +15,7 @@ es:
         inclusion: "no está incluido en la lista"
         required: "debe existir"
         taken: "ya está en uso"
+        record_invalid: "tiene errores"
       models:
         usuario:
           attributes:

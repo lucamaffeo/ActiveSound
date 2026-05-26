@@ -28,7 +28,6 @@ class Producto < ApplicationRecord
   validate :stock_por_estado_fisico
   validate :imagen_obligatoria_en_creacion
   validate :audio_solo_usado
-  validate :imagenes_presentes, on: :create
 
   # === CALLBACKS ===
   before_create :set_default_values
@@ -132,12 +131,5 @@ class Producto < ApplicationRecord
     if estado_fisico == "usado"
       errors.add(:stock, "debe ser 1 para productos usados") unless stock == 1
     end
-  end
-
-  def imagenes_presentes
-    # Asumiendo ActiveStorage: has_many_attached :imagenes
-    return if respond_to?(:imagenes) && imagenes.respond_to?(:attached?) && imagenes.attached?
-
-    errors.add(:imagenes, "debe subir al menos una imagen")
   end
 end

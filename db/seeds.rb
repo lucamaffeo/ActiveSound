@@ -97,15 +97,15 @@ productos = []
     anio: rand(1975..2023),
     estado: "activo"
   )
+  p.save(validate: false)
   attach_image!(p, img_default)
-  p.save!
   productos << p
 end
 
 5.times do
   p = Producto.new(
     titulo: Faker::Music.album,
-    descripcion:descripciones_es.sample,
+    descripcion: descripciones_es.sample,
     autor: Faker::Music.band,
     precio: rand(500..5000),
     stock: 1,
@@ -115,9 +115,9 @@ end
     anio: rand(1975..2020),
     estado: "activo"
   )
+  p.save(validate: false)
   attach_image!(p, img_default)
   attach_audio_if_used!(p, audio_default)
-  p.save!
   productos << p
 end
 puts "==> Listo: #{Producto.count} productos creados."
