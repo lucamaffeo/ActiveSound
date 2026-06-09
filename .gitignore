@@ -10,6 +10,9 @@
 # Ignore all environment files.
 /.env*
 
+# Archivos de configuración de Kamal con secretos
+/.kamal/secrets
+
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
@@ -46,3 +49,7 @@
 /db/*.sqlite3-journal
 /db/development.sqlite3-wal
 /db/development.sqlite3-shm
+
+# Archivos con secretos y claves
+/tmp/local_secret.txt
+/tmp/*.key
